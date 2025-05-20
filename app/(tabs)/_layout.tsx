@@ -7,8 +7,8 @@ import { icons } from '@/constants/icons'
 // This is the main layout for the app. It contains the tab navigation and the screens for each tab.
 // The tabs are Home, Search, Saved, and Profile. Each tab has its own screen and can be navigated to by clicking on the tab.
 
-// This is the TabIcon component. It is used to display the icon and text for the Home tab. It is a reusable component that can be used in other parts of the app as well. We are passing the props fucused, icon, and title to the TabIcon component to display the icon and text for the Home tab when the tab is focused.
-// The focused prop is used to change the icon and text color when the tab is focused. The icon prop is used to display the icon for the Home tab. The title prop is used to display the text for the Home tab.
+// This is the TabIcon component. It is used to display the icon and text. It is a reusable component that can be used in other parts of the app as well. We are passing the props fucused, icon, and title to the TabIcon component to display the icon and text for the Home tab, Saved tab, Search tab, and Profile tab when they are focused one by one.
+// The focused prop is used to change the icon and text color when a tab is focused. The icon prop is used to display the icon for each tab. The title prop is used to display the text for each tab.
 // It uses the ImageBackground component to display the background image and the Image component to display the icon.
 const TabIcon = ({ focused, icon, title }: any) => {
     return (
@@ -65,7 +65,7 @@ const _layout = () => {
                     title: 'Saved',
                     headerShown: false,
                     tabBarIcon: ({ focused }) => (
-                        // we are reusing the TabIcon component here to display the icon and text for the Search tab
+                        // we are reusing the TabIcon component here to display the icon and text for the Saved tab
                         // we are passing the focused prop to the TabIcon component to change the icon and text color when the tab is focused
                         <TabIcon
                             focused={focused}
@@ -81,7 +81,7 @@ const _layout = () => {
                     title: 'Profile',
                     headerShown: false,
                     tabBarIcon: ({ focused }) => (
-                        // we are reusing the TabIcon component here to display the icon and text for the Search tab
+                        // we are reusing the TabIcon component here to display the icon and text for the Profile tab
                         // we are passing the focused prop to the TabIcon component to change the icon and text color when the tab is focused
                         <TabIcon
                             focused={focused}
