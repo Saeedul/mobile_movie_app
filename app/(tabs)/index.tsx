@@ -1,7 +1,7 @@
 import SearchBar from "@/components/SearchBar";
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
-import { ActivityIndicator, Image, ScrollView, Text, View } from "react-native";
+import { ActivityIndicator, FlatList, Image, ScrollView, Text, View } from "react-native";
 import { router, useRouter } from "expo-router";
 import useFetch from "@/services/useFetch";
 import { fetchMovies } from "@/services/api";
@@ -28,7 +28,7 @@ export default function Index() {
           <ActivityIndicator
             size="large"
             color="#0000ff"
-            className="mt-10 seld-center"
+            className="mt-10 self-center"
           />
         ) : moviesError ? (
           <Text>Error: {moviesError?.message}</Text>
@@ -38,6 +38,29 @@ export default function Index() {
               onPress={() => router.push("/search")}
               placeholder="Search for a movie"
             />
+
+            <>
+              <Text className="text-lg text-white font-bold mt-5 mb-3">Latest Movies</Text>
+
+              <FlatList
+              data={movies}
+              renderItem={({ item }) => (
+                <Text className="text-white text-sm">
+                  {item.title}
+                </Text>
+              )}
+              keyExtractor={(item) => item.id.toString()}
+              numColumns={3}
+              columnWrapperStyle={{ justifyContent: 'flex-start',
+                gap: 20,
+                paddingRight: 5,
+                marginBottom: 10
+              }}
+              className="mt-2 pb-32"
+              scrollEnabled={false}
+              />
+            </>
+
           </View>
         )}
 
